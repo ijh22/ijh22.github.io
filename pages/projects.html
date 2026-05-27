@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Isaiah Hardy's featured computer science projects.">
+  <title>Isaiah Hardy | Projects</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../gradient.js" defer></script>
+  <script src="../scripts/projects.js" defer></script>
+</head>
+<body>
+  <nav class="site-nav wrap" aria-label="Primary navigation">
+    <a href="../index.html">Home</a>
+    <a class="active" href="projects.html">Projects</a>
+    <a href="skills.html">Skills</a>
+  </nav>
+
+  <main>
+    <header class="page-header wrap">
+      <h1 class="page-title">My Projects</h1>
+      <p>A few projects from school and independent work. Click a card to view more details.</p>
+    </header>
+
+    <section>
+      <div class="wrap">
+        <div class="projects-grid">
+          <button class="project-card" type="button" data-modal-target="under-the-cup-modal">
+            <div class="project-image project-image-preview">
+              <img src="../assets/under-the-cup.png" alt="Under The Cup social app preview">
+            </div>
+            <div class="project-info">
+              <h3>Under The Cup</h3>
+              <p>MongoDB / Express / React / Node / Tailwind</p>
+            </div>
+          </button>
+
+          <button class="project-card" type="button" data-modal-target="ransomware-modal">
+            <div class="project-image project-image-preview">
+              <img src="../assets/ransomware-lab.png" alt="Ransomware Scavenger Hunt lab preview">
+            </div>
+            <div class="project-info">
+              <h3>Ransomware Learning Environment</h3>
+              <p>Python / Windows / PowerShell</p>
+            </div>
+          </button>
+
+          <button class="project-card" type="button" data-modal-target="deadwood-modal">
+            <div class="project-image project-image-preview">
+              <img src="../assets/deadwood.png" alt="Deadwood board game preview">
+            </div>
+            <div class="project-info">
+              <h3>Deadwood</h3>
+              <p>Java / Swing / MVC</p>
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="project-modal" id="under-the-cup-modal" aria-hidden="true">
+    <div class="project-modal-window" role="dialog" aria-modal="true" aria-labelledby="under-the-cup-title">
+      <button class="modal-close" type="button" aria-label="Close project details">&times;</button>
+      <div class="project-modal-preview">
+        <div class="project-modal-preview-frame">
+          <img src="../assets/under-the-cup.png" alt="Under The Cup MERN social app feed with bug posts and community features">
+        </div>
+      </div>
+      <h2 id="under-the-cup-title">Under The Cup</h2>
+      <p>A full-stack social platform centered on sharing and discovering coffee experiences, with user authentication, searchable content, profiles, and database-backed API routes.</p>
+      <ul class="project-tech">
+        <li>React</li>
+        <li>Vite</li>
+        <li>Node.js</li>
+        <li>Express</li>
+        <li>MongoDB</li>
+        <li>Tailwind CSS</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-modal" id="ransomware-modal" aria-hidden="true">
+    <div class="project-modal-window" role="dialog" aria-modal="true" aria-labelledby="ransomware-title">
+      <button class="modal-close" type="button" aria-label="Close project details">&times;</button>
+      <div class="project-modal-preview">
+        <div class="project-modal-preview-frame">
+          <img src="../assets/ransomware-lab.png" alt="Ransomware Scavenger Hunt educational lab interface with console output and flag entry">
+        </div>
+      </div>
+      <h2 id="ransomware-title">Ransomware Learning Environment</h2>
+      <p>A controlled Windows lab for learning how ransomware behaviors work, including encryption workflows, persistence concepts, and incident-response style analysis in a virtual environment.</p>
+      <ul class="project-tech">
+        <li>Python</li>
+        <li>PowerShell</li>
+        <li>Windows VMs</li>
+        <li>PyCryptodome</li>
+        <li>pywin32</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-modal" id="deadwood-modal" aria-hidden="true">
+    <div class="project-modal-window" role="dialog" aria-modal="true" aria-labelledby="deadwood-title">
+      <button class="modal-close" type="button" aria-label="Close project details">&times;</button>
+      <div class="project-modal-preview">
+        <div class="project-modal-preview-frame">
+          <img id="deadwood-preview" src="../assets/deadwood.png" alt="Deadwood board game layout used in the Java Swing project">
+        </div>
+      </div>
+      <div class="project-image-selector" aria-label="Deadwood project screenshots">
+        <button class="project-thumb active" type="button" data-preview-target="deadwood-preview" data-preview-src="../assets/deadwood.png" data-preview-alt="Deadwood board game layout used in the Java Swing project">
+          <img src="../assets/deadwood.png" alt="">
+          <span>Board View</span>
+        </button>
+        <button class="project-thumb" type="button" data-preview-target="deadwood-preview" data-preview-src="../assets/deadwood-text.png" data-preview-alt="Text-based Deadwood gameplay demonstrating the MVC implementation">
+          <img src="../assets/deadwood-text.png" alt="">
+          <span>Text View</span>
+        </button>
+      </div>
+      <h2 id="deadwood-title">Deadwood</h2>
+      <p>A Java recreation of the Deadwood board game utilizing the MVC Architecture. Built with a decoupled core game logic that drives two interchangeable views: a text-based terminal interface and a graphical Swing UI. The model governs the board state and rules, the controller handles player input and turn flow, and the view strictly renders the game state.</p>
+      <ul class="project-tech">
+        <li>Java</li>
+        <li>Java Swing</li>
+        <li>MVC</li>
+        <li>Object-Oriented Design</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer class="wrap">
+    Built by Isaiah Hardy.
+  </footer>
+</body>
+</html>
