@@ -21,13 +21,16 @@
 }
 
 html {
+  background: var(--bg);
   scroll-behavior: smooth;
 }
 
 body {
   min-height: 100vh;
+  min-height: 100svh;
   margin: 0;
   color: var(--text);
+  background-color: var(--bg);
   background:
     radial-gradient(circle at var(--gradient-x) var(--gradient-y), rgba(220, 38, 38, 0.2), transparent 40%),
     radial-gradient(circle at var(--gradient-x2) var(--gradient-y2), rgba(127, 29, 29, 0.18), transparent 36%),
@@ -503,6 +506,7 @@ section {
   font: inherit;
   font-size: 0.78rem;
   font-weight: 700;
+  text-decoration: none;
 }
 
 .project-thumb.active,
@@ -516,6 +520,11 @@ section {
   height: 34px;
   border-radius: 5px;
   object-fit: cover;
+}
+
+.project-thumb--text-only {
+  grid-template-columns: auto;
+  padding: 12px 100px;
 }
 
 .project-modal-window h2 {
