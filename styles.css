@@ -36,6 +36,7 @@ html {
 }
 
 body {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -51,6 +52,11 @@ body {
   line-height: 1.5;
   overscroll-behavior: none;
   -webkit-overflow-scrolling: touch;
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
 }
 
 main {
@@ -651,6 +657,48 @@ footer {
 }
 
 @media (max-width: 620px) {
+  :root {
+    --page-background:
+      radial-gradient(ellipse 115% 70% at var(--gradient-x) var(--gradient-y), rgba(239, 68, 68, 0.34), transparent 58%),
+      radial-gradient(ellipse 90% 58% at var(--gradient-x2) var(--gradient-y2), rgba(127, 29, 29, 0.3), transparent 62%),
+      linear-gradient(180deg, #17191d 0%, var(--bg) 48%, #0d0e10 100%);
+  }
+
+  html {
+    height: auto;
+    min-height: 100%;
+    overflow: auto;
+    background-color: #0d0e10;
+    background-image: var(--page-background);
+    overscroll-behavior: auto;
+  }
+
+  body {
+    min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: visible;
+    background-color: #0d0e10;
+    background-image: var(--page-background);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    overscroll-behavior: auto;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 120vw 54vh at var(--gradient-x) calc(var(--gradient-y) + var(--safe-top)), rgba(239, 68, 68, 0.24), transparent 66%),
+      radial-gradient(ellipse 110vw 56vh at var(--gradient-x2) calc(var(--gradient-y2) - var(--safe-bottom)), rgba(127, 29, 29, 0.22), transparent 70%);
+    pointer-events: none;
+    transform: translateZ(0);
+  }
+
   .wrap {
     width: min(100% - 28px, 1040px);
   }
@@ -689,5 +737,13 @@ footer {
   .project-modal-window p {
     font-size: 0.88rem;
     line-height: 1.5;
+  }
+}
+
+@media (max-width: 620px) and (prefers-reduced-motion: reduce) {
+  body::before {
+    background:
+      radial-gradient(ellipse 95vw 50vh at 70% 12%, rgba(239, 68, 68, 0.2), transparent 64%),
+      radial-gradient(ellipse 82vw 46vh at 20% 88%, rgba(127, 29, 29, 0.18), transparent 68%);
   }
 }
