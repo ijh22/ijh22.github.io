@@ -27,33 +27,30 @@
 }
 
 html {
-  min-height: 100%;
-  background: var(--page-background);
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg);
+  background-image: var(--page-background);
+  overscroll-behavior: none;
   scroll-behavior: smooth;
 }
 
 body {
-  position: relative;
-  isolation: isolate;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  min-height: 100svh;
-  min-height: 100dvh;
+  height: 100vh;
+  height: 100svh;
+  height: 100dvh;
   margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
   color: var(--text);
-  background: var(--page-background);
+  background-color: var(--bg);
+  background-image: var(--page-background);
   font-family: var(--font);
   line-height: 1.5;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: var(--page-background);
-  pointer-events: none;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 main {
