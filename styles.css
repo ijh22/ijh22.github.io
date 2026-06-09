@@ -14,6 +14,12 @@
   --gradient-y2: 100%;
   --shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
   --font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --page-background:
+    radial-gradient(circle at var(--gradient-x) var(--gradient-y), rgba(220, 38, 38, 0.2), transparent 40%),
+    radial-gradient(circle at var(--gradient-x2) var(--gradient-y2), rgba(127, 29, 29, 0.18), transparent 36%),
+    linear-gradient(180deg, #141518 0%, var(--bg) 52%, #0d0e10 100%);
 }
 
 * {
@@ -21,23 +27,37 @@
 }
 
 html {
-  background: var(--bg);
+  min-height: 100%;
+  background: var(--page-background);
   scroll-behavior: smooth;
 }
 
 body {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   min-height: 100svh;
+  min-height: 100dvh;
   margin: 0;
   color: var(--text);
   background-color: var(--bg);
-  background:
-    radial-gradient(circle at var(--gradient-x) var(--gradient-y), rgba(220, 38, 38, 0.2), transparent 40%),
-    radial-gradient(circle at var(--gradient-x2) var(--gradient-y2), rgba(127, 29, 29, 0.18), transparent 36%),
-    linear-gradient(180deg, #141518 0%, var(--bg) 52%, #0d0e10 100%);
-  background-attachment: fixed;
   font-family: var(--font);
   line-height: 1.5;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--page-background);
+  pointer-events: none;
+}
+
+main {
+  flex: 1;
 }
 
 a {
@@ -54,7 +74,7 @@ a {
   display: flex;
   justify-content: center;
   gap: 8px;
-  padding: 28px 0 0;
+  padding: calc(28px + var(--safe-top)) 0 0;
 }
 
 .site-nav a {
@@ -116,7 +136,7 @@ a {
 }
 
 .home-page .site-nav {
-  padding-top: 22px;
+  padding-top: calc(22px + var(--safe-top));
 }
 
 .home-page .hero {
@@ -137,7 +157,7 @@ a {
 }
 
 .home-page footer {
-  padding: 20px 0 30px;
+  padding: 20px 0 calc(30px + var(--safe-bottom));
 }
 
 .hero h1,
@@ -616,7 +636,7 @@ section {
 }
 
 footer {
-  padding: 28px 0 40px;
+  padding: 28px 0 calc(40px + var(--safe-bottom));
   color: var(--muted);
   font-size: 0.9rem;
   text-align: center;
@@ -639,7 +659,7 @@ footer {
   }
 
   .site-nav {
-    padding-top: 18px;
+    padding-top: calc(18px + var(--safe-top));
   }
 
   .hero,
